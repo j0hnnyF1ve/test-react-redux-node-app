@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+  web:
+    build: .
+    container_name: jpangilinan_node-web-app
+    command: nodemon --debug=5858
+    volumes:
+      - .:/usr/src/app/
+    ports:
+      - "8080:8080"
+      - "5858:5858"
