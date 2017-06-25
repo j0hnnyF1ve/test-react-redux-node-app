@@ -4,7 +4,7 @@
 
 FROM node:boron
 
-MAINTAINER John Pangilinan
+MAINTAINER John Pangilinan <john.pangilinan1@gmail.com>
 
 RUN mkdir -p /usr/src/app/
 WORKDIR /usr/src/app/
