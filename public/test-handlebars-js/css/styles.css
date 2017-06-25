@@ -1,0 +1,10 @@
+h1 { background-color: green; }
+h1.error { background-color: red; }
+
+.header {
+  list-style-type: none;
+  background-color: yellow;
+  margin: 0 0 20px; padding: 0;
+}
+.header li { display: inline-block; margin-left: 25px; }
+.header li a { color: #000; }
