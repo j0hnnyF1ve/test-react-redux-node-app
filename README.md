@@ -21,6 +21,9 @@ https://facebook.github.io/react/
 Redux.js
 http://redux.js.org/
 
+Bootstrap for some simple Layout
+http://getbootstrap.com/
+
 Links
 =====
 
