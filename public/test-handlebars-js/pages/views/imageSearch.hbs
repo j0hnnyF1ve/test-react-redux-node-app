@@ -1,0 +1,65 @@
+<h1>Image Search</h1>
+
+<p>
+  Search for something interesting on Flickr!
+</p>
+
+<form id="FormSearch">
+  <div class="form-group">
+    <label class="form-inline" for="search">Search: </label>
+    <input type="text" class="form-inline" id="FormSearchText" placeholder="Search" value="{{search}}" />
+    <button id="FormSubmit" type="button" class="btn btn-primary">Submit</button>
+  </div>
+  <div class="form-group">
+    <label class="form-inline" for="search">Number of Columns: </label>
+    <select class="form-inline" id="FormNumCols">
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+    <label class="form-inline" for="search">Number of Results: </label>
+    <select class="form-inline" id="FormNumResults">
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <ul class="pagination" id="FormPagination">
+      <li id="FormPaginationPrevious">
+        <a href="#bottom" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li id="FormPaginationNext">
+        <a href="#bottom" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</form>
+
+<a name="bottom"></a>
+<div id="ImageDisplay" class="container-fluid"></div>
+
+<div id="ImageModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button id="ImageModalPrev" type="button" class="btn btn-default">Previous</button>
+        <button id="ImageModalNext" type="button" class="btn btn-default">Next</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
