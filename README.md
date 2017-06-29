@@ -1,3 +1,5 @@
+Basic app built using Handlebars, Node, and the Flickr API
+
 Initializing the Docker Container
 =====
 

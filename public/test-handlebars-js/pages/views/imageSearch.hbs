@@ -46,18 +46,72 @@
 <div id="ImageDisplay" class="container-fluid"></div>
 
 <div id="ImageModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Modal title</h4>
+        <h4 class="modal-title">Image Viewer</h4>
       </div>
       <div class="modal-body">
 
+        <div id="Carousel" class="carousel" data-ride="carousel">
+          <!-- Indicators -->
+<!--
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+          </ol>
+-->
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+<!--
+            <div id="CarouselImage1" class="item">
+              <img src="" alt="">
+              <div class="carousel-caption">
+              </div>
+            </div>
+            <div id="CarouselImage2" class="item">
+              <img src="" alt="">
+              <div class="carousel-caption">
+              </div>
+            </div>
+-->
+            <div id="CarouselImage3" class="item active">
+              <img src="" alt="">
+              <div class="carousel-caption">
+              </div>
+            </div>
+<!--
+            <div id="CarouselImage4" class="item">
+              <img src="" alt="">
+              <div class="carousel-caption">
+              </div>
+            </div>
+            <div id="CarouselImage5" class="item">
+              <img src="" alt="">
+              <div class="carousel-caption">
+              </div>
+            </div>
+-->
+          </div>
+
+          <!-- Controls -->
+          <a id="ImageModalPrev" class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a id="ImageModalNext" class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
       </div>
       <div class="modal-footer">
-        <button id="ImageModalPrev" type="button" class="btn btn-default">Previous</button>
-        <button id="ImageModalNext" type="button" class="btn btn-default">Next</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div><!-- /.modal-content -->

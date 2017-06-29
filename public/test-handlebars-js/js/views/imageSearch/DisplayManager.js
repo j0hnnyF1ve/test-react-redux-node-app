@@ -37,11 +37,8 @@ function generateDisplayManager() {
 
   function createImage(data) {
     var image = new Image();
-    var url   = "https://farm{farm}.staticflickr.com/{server}/{id}_{secret}";
-    url       = url.replace("{farm}", data.farm);
-    url       = url.replace("{server}", data.server);
-    url       = url.replace("{id}", data.id);
-    url       = url.replace("{secret}", data.secret);
+    var url = generateImageUrl(data);
+
     image.dataset.num     = data.num;
     image.dataset.rootUrl = url;
     image.src = url + "_n.jpg";
@@ -51,18 +48,28 @@ function generateDisplayManager() {
     return image;
   }
 
-  function generateImageUrl(data) {
+  function generateImageUrl(data, ext="") {
     var url   = "https://farm{farm}.staticflickr.com/{server}/{id}_{secret}";
     url       = url.replace("{farm}", data.farm);
     url       = url.replace("{server}", data.server);
     url       = url.replace("{id}", data.id);
     url       = url.replace("{secret}", data.secret);
-    return url + ".jpg";
+    return url + ext;
   }
 
   function setActivePage(page) {
     $("#FormPagination .page").removeClass("active")
     $("#FormPagination #page-" + page).addClass("active");
+  }
+
+  function setCarouselImage(data, pos) {
+    if(!data || pos > 5 || pos < 0) { return; }
+    var image = new Image();
+    image.src = data.imageUrl || generateImageUrl(data, ".jpg");
+    image.dataset.num = data.num;
+    var selector = "#CarouselImage{num}";
+    $(selector.replace("{num}", pos) + " img").remove();
+    $(selector.replace("{num}", pos) ).append(image);
   }
 
   function updatePager(numPages, handler) {
@@ -80,6 +87,7 @@ function generateDisplayManager() {
     createImage : createImage,
     generateImageUrl : generateImageUrl,
     setActivePage : setActivePage,
+    setCarouselImage : setCarouselImage,
     updatePager : updatePager
   };
 }

@@ -8,13 +8,8 @@ const urlLib   = require("url");
 const PORT = 8080;
 const app = express();
 
-
+// static content
 app.use(express.static('public'));
-
-// A CRUD app written with React and Redux
-app.get("test-crud-app", function(req, res) {
-
-});
 
 // test-handlebars-js app
 app.get("/test-handlebars-js/*", function(req, res) {
@@ -62,7 +57,7 @@ console.log(scriptpath);
       var obj = {
         page : filename
       };
-      if(query.search) { obj.search = query.search; }
+      if(query.search) { obj.search = decodeURIComponent(query.search); }
 
       if( !err && files ) {
         obj.files = files;

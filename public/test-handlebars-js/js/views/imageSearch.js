@@ -29,7 +29,6 @@ function onReady() {
   $("#ImageModalPrev").on("click", imageModalPrevHandler);
   $("#ImageModalNext").on("click", imageModalNextHandler);
 
-
   if( $("#FormSearchText").val() != "")
   { search($("#FormSearchText").val()); }
 }
@@ -44,40 +43,33 @@ function imageModalPrevHandler(e) {
   var id = $("#ImageModal .modal-body img").data("num");
   var photoData = App.getPhoto(1*id-1);
 
-  if(photoData) {
-    var image = new Image();
-    image.src = Display.generateImageUrl(photoData);
-    image.dataset.num = photoData.num;
-    
-    $("#ImageModal .modal-body").html("")
-      .append(image);
-  }
+//  Display.setCarouselImage(App.getPhoto(1*id-3), 1);
+//  Display.setCarouselImage(App.getPhoto(1*id-2), 2);
+  Display.setCarouselImage(App.getPhoto(1*id-1), 3);
+//  Display.setCarouselImage(App.getPhoto(1*id), 4);
+//  Display.setCarouselImage(App.getPhoto(1*id+1), 5);
 }
 
 function imageModalNextHandler(e) {
   var id = $("#ImageModal .modal-body img").data("num");
-  var photoData = App.getPhoto(1*id+1);
 
-  if(photoData) {
-    var image = new Image();
-    image.src = Display.generateImageUrl(photoData);
-    image.dataset.num = photoData.num;
-
-    $("#ImageModal .modal-body").html("")
-      .append(image);
-  }
+//  Display.setCarouselImage(App.getPhoto(1*id-1), 1);
+//  Display.setCarouselImage(App.getPhoto(1*id), 2);
+  Display.setCarouselImage(App.getPhoto(1*id+1), 3);
+//  Display.setCarouselImage(App.getPhoto(1*id+2), 4);
+//  Display.setCarouselImage(App.getPhoto(1*id+3), 5);
 }
 
 function imageModalShowHandler(e) {
-  console.log(e);
   if(e.relatedTarget && e.relatedTarget.dataset.imageUrl) {
     var data = e.relatedTarget.dataset;
+    var id = data.num;
 
-    var image = new Image();
-    image.src = data.imageUrl;
-    image.dataset.num = data.num;
-    $("#ImageModal .modal-body").html("")
-      .append(image);
+//    Display.setCarouselImage(App.getPhoto(1*id-2), 1);
+//    Display.setCarouselImage(App.getPhoto(1*id-1), 2);
+    Display.setCarouselImage(App.getPhoto(1*id), 3);
+//    Display.setCarouselImage(App.getPhoto(1*id+1), 4);
+//    Display.setCarouselImage(App.getPhoto(1*id+2), 5);
   }
 }
 
@@ -103,7 +95,7 @@ function numColsHandler(e) {
   App.setCols(this.value);
 
   if( !App.isEmpty() ) {
-    App.next();
+//    App.next();
     Display.layoutPhotos( App.getCurrentPhotos(), App.getCols() );
   }
 }
@@ -131,6 +123,7 @@ function searchHandler(err, result) {
 
   if(result.photos.photo) {
     App.setPhotoCache(result.photos.photo);
+    App.setIndex(0);
 
     Display.updatePager( App.getNumPages(), pageClickHandler );
     Display.layoutPhotos( App.getCurrentPhotos(), App.getCols() );
