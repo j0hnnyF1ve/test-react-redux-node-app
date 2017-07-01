@@ -9,6 +9,7 @@ function DataBind(object_id) {
   var data_attr = "bind-" + object_id,
       message = object_id + ":change";
 
+  // We handle change or keyup events on elements with data_attr
   jQuery( document ).on("change", "[data-"+data_attr+"]", changeHandler);
   jQuery( document ).on("keyup", "[data-"+data_attr+"]", keyupHandler);
 
@@ -35,7 +36,7 @@ function DataBind(object_id) {
 
   function changeHandler(evt) { pubsubTrigger.call(this, evt); }
   function keyupHandler(evt) {
-    if(["Shift","Backspace"].includes(evt.key) ) { }
+    if(["Backspace"].includes(evt.key) ) { }
     else if(evt.key.length > 1) { return; }
     pubsubTrigger.call(this, evt);
   }
@@ -44,7 +45,6 @@ function DataBind(object_id) {
     var $input = jQuery( this );
 
     _trigger( data_attr.replace("bind-", ""), $input.val() );
-//    _trigger( $input.data(data_attr), $input.val() );
   }
 
   function _trigger(name, value, obj=null) {
@@ -62,6 +62,7 @@ return DataBind;
 
 })(jQuery);
 
+
 module.exports.DataBindManager = (function($, DataBind) {
 
 function DataBindManager() {
@@ -71,7 +72,9 @@ function DataBindManager() {
   // jQuery extension to get all data keys in a DOM element
   jQuery.extend(jQuery.expr[':'], {
     "dataStartsWith" : function(el, i, p, n) {
-      var pCamel = p[3].replace(/-([a-z])/ig, function(m,$1) { return $1.toUpperCase(); });
+      var pCamel = p[3].replace(/-([a-z])/ig,
+          function(m,$1) { return $1.toUpperCase(); });
+
       return Object.keys(el.dataset).some(function(i, v){
         return i.indexOf(pCamel) > -1;
       });
@@ -88,7 +91,7 @@ function DataBindManager() {
 
     // To get a list of data attributes:
     $('*:dataStartsWith(bind)').each(function(i, el){
-      console.log(el, el.dataset );
+
       for(let index in el.dataset) {
         index = index.replace("bind", "");
         index = index[0].toLowerCase() + index.slice(1);
