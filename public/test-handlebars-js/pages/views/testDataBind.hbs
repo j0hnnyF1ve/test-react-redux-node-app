@@ -1,0 +1,56 @@
+<style type="text/css">
+  div label { width: 175px; }
+</style>
+
+<h1>Testing</h1>
+
+<div>
+  Hello world
+</div>
+
+<div>
+  <label>Test1</label>
+  <input type="text" data-bind-test id="Test1" />
+  <label data-bind-test="name">What</label>
+</div>
+<div>
+  <label>Test2</label>
+  <input type="text" data-bind-Test-2 id="Test2" />
+  <label data-bind-test-2="name">testing</label>
+</div>
+<form>
+  <label>Write directly to property</label>
+  <input type="text" id="FormInput" />
+  <select id="FormSelect">
+    <option value="test">test</option>
+    <option value="test-2">test-2</option>
+  </select>
+  <button id="FormButton">Set Value</button>
+</form>
+<form>
+  <label>Write to user</label>
+  <input type="text" id="FormInput2" />
+  <select id="FormSelect2" data-bind-select>
+    <option value="test">test</option>
+    <option value="test-2">test-2</option>
+    <option value="name">name</option>
+  </select>
+  <button id="FormButton2">Set Value</button>
+</form>
+
+<div>
+  <button id="FormButton3">Show User Attributes</button>
+</div>
+<div>
+  <textarea id="FormTextArea3" style="width: 300px; height: 150px;"></textarea>
+</div>
+
+<div>
+  <select id="FormSelect4" data-bind-select>
+    <option value="test">test</option>
+    <option value="test-2">test-2</option>
+    <option value="name">name</option>
+  </select>
+  <button id="FormButton4">Add</button>
+  <button id="FormButton5">Remove</button>
+</div>

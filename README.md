@@ -26,6 +26,11 @@ http://redux.js.org/
 Bootstrap for some simple Layout
 http://getbootstrap.com/
 
+Flickr API
+https://www.flickr.com/services/api/
+https://www.flickr.com/services/api/misc.urls.html - URI scheme
+https://www.npmjs.com/package/flickrapi
+
 Links
 =====
 

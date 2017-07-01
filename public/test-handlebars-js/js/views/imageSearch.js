@@ -1,12 +1,14 @@
+window.module = window.module || {};
+window.module.exports = window.module.exports || {};
+
 console.log(module.exports);
 
-
-(function($, Flickr, AppManager, DisplayManager) {
+(function($, Flickr, imports) {
 "use strict"
 
 var FlickrObj = new Flickr({ api_key: "f100f808b8501d88fae083df7dc7d7a6"});
-var App = AppManager.generate();
-var Display = DisplayManager.generate();
+var App = imports.AppManager.generate();
+var Display = imports.DisplayManager.generate();
 
 // initialize the app
 $(onReady);
@@ -131,4 +133,4 @@ function searchHandler(err, result) {
   }
 }
 
-})(jQuery, Flickr, module.exports.AppManager, module.exports.DisplayManager);
+})(jQuery, Flickr, module.exports);
